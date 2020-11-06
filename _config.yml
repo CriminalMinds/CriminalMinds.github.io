@@ -12,7 +12,7 @@ title: Nik0                          # the main title
 
 tagline: Entusiasta de la tecnología # it will display as the sub-title
 
-description: >- cool                       # used by seo meta and the atom feed
+description: > cool                       # used by seo meta and the atom feed
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://CriminalMinds.github.io'
