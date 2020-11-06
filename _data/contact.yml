@@ -25,9 +25,9 @@
 #   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
 #   url:  ''                  # Fill with your mastodon account page
 # -
-   type: linkedin
-   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-    url:  'https://www.linkedin.com/in/nicol%C3%A1s-p%C3%A9rez-molina-87033a1b7/'                  # Fill with your Linkedin homepage
+    type: linkedin
+    icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+    url:  'www.linkedin.com/in/nik0'                  # Fill with your Linkedin homepage
 # -
 #   type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
