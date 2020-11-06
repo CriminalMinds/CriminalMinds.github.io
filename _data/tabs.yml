@@ -6,10 +6,10 @@
 
 
 -
-  name: Home
+  name: "Inicio"
   icon: "fas fa-home"
 -
-  name: Categorias
+  name: "Categorias"
   icon: "fas fa-stream"
   path: tabs
   url: categories
