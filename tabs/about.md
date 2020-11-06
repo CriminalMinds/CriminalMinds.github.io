@@ -15,3 +15,18 @@ title: Acerca de
 <p align="center">
 <img src="/assets/img/sample/IBM.png">
 </p>
+
+> <h3><strong>CISCO</strong></h3>
+<p align="center">
+<img src="/assets/img/sample/CISCO.png">
+</p>
+
+> <h3><strong>Backtrack Academy</strong></h3>
+<p align="center">
+<img src="/assets/img/sample/BT.png">
+</p>
+
+> <h3><strong>Jovenes Programadores(Chile)</strong></h3>
+<p align="center">
+<img src="/assets/img/sample/JP.png">
+</p>
