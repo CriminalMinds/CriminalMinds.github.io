@@ -1,185 +1,63 @@
 ---
-title: Writing a New Post
-author: Cotes Chung
-date: 2019-08-08 14:10:00 +0800
-categories: [Blogging, Tutorial]
-tags: [writing]
+title: Tryhackme - Vulnversity
+author: nik0
+date: 2020-11-14 14:10:00 +0800
+categories: [Write up]
+tags: [THM,Vulnversity]
 ---
 
-## Naming and Path
+## Introducción
 
-Create a new file named `YYYY-MM-DD-TITLE.EXTENSION` and put it in the `_post/` of the root directory. Please note that the `EXTENSION` must be one of `md` and `markdown`. From `v2.4.1`, you can create sub-directories under `_posts/` to categorize posts.
+En este write up veremos la máquina Vulnversity de Tryhackme, veremos temas cómo reconocimiento activo, ataques a aplicaciones web y escalación de privilegios explotando binarios.
 
-## Front Matter
+## Reconocimiento
 
-Basically, you need to fill the [Front Matter](https://jekyllrb.com/docs/front-matter/) as below at the top of the post:
+Primero haremos un escaneo con nmap para ello utilizamos el comando ```sudo nmap -sC -sV "ip"``` y el output que nos muestra es el siguiente:
 
-```yaml
----
-title: TITLE
-date: YYYY-MM-DD HH:MM:SS +/-TTTT
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAG]     # TAG names should always be lowercase
----
+```Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-13 21:03 -03
+Nmap scan report for 10.10.128.154
+Host is up (0.27s latency).
+Not shown: 994 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.3
+22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 5a:4f:fc:b8:c8:76:1c:b5:85:1c:ac:b2:86:41:1c:5a (RSA)
+|   256 ac:9d:ec:44:61:0c:28:85:00:88:e9:68:e9:d0:cb:3d (ECDSA)
+|_  256 30:50:cb:70:5a:86:57:22:cb:52:d9:36:34:dc:a5:58 (ED25519)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)
+3128/tcp open  http-proxy  Squid http proxy 3.5.12
+|_http-server-header: squid/3.5.12
+|_http-title: ERROR: The requested URL could not be retrieved
+3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Vuln University
+Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 1h40m19s, deviation: 2h53m12s, median: 19s
+|_nbstat: NetBIOS name: VULNUNIVERSITY, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: vulnuniversity
+|   NetBIOS computer name: VULNUNIVERSITY\x00
+|   Domain name: \x00
+|   FQDN: vulnuniversity
+|_  System time: 2020-11-13T19:04:45-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-11-14T00:04:46
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 51.43 seconds
 ```
-
-> **Note**: The posts' ***layout*** has been set to `post` by default, so there is no need to add the variable ***layout*** in Front Matter block.
-
-### Timezone of date
-
-In order to accurately record the release date of a post, you should not only setup the `timezone` of `_config.yml` but also provide the the post's timezone in field `date` of its Front Matter block. Format: `+/-TTTT`, e.g. `+0800`.
-
-### Categories and Tags
-
-The `categories` of each post is designed to contain up to two elements, and the number of elements in `tags` can be zero to infinity.
-
-The list of posts belonging to the same *category*/*tag* is recorded on a separate page. At the same time, the number of these *category*/*tag* type pages is equal to the number of `categories` / `tags` elements for all posts, which means that the two number must be exactly the same.
-
-For instance, let's say there is a post with front matter:
-
-```yaml
-categories: [Animal, Insect]
-tags: bee
-```
-
-Then we should have two *category* type pages placed in folder `categories` of root and one *tag* type page placed in folder `tags`  of root:
-
-```sh
-.
-├── categories
-│   ├── animal.html         # a category type page
-│   └── insect.html
-├── tags
-│   └── bee.html            # a tag type page
-...
-```
-    
-and the content of a *category* type page is
-
-```yaml
----
-layout: category
-title: CATEGORY_NAME        # e.g. Insect
-category: CATEGORY_NAME     # e.g. Insect
----
-```
-
-the content of a *tag* type page is
-
-```yaml
----
-layout: tag
-title: TAG_NAME             # e.g. bee
-tag: TAG_NAME               # e.g. bee
----
-```
-
-With the increasing number of posts, the number of categories and tags will increase several times!  If we still manually create these *category*/*tag* type files, it will obviously be a super time-consuming job, and it is very likely to miss some of them, i.e., when you click on the missing `category` or `tag` link from a post or somewhere, the browser will complain to you "404 Not Found". The good news is we got a lovely script tool `_scripts/sh/create_pages.sh` to finish the boring tasks. Basically we will use it through `run.sh`, `build.sh` or `deploy.sh` that placed in `tools/` instead of running it separately. Check out its use case [here]({{ "/posts/getting-started/#deployment" | relative_url }}).
-
-## Last modified date
-
-The last modified date of a post is obtained according to the post's latest git commit date, and the modified date of all posts are designed to be stored in the file `_data/updates.yml`. Then contents of that file may be as follows:
-
-```yaml
--
-  filename: getting-started             # the post filename without date and extension
-  lastmod: 2020-04-13 00:38:56 +0800    # the post last modified date
--
-  ... 
-```
-
-You can choose to create this file manually, But the better approach is to let it be automatically generated by a script tool, and `_scripts/sh/dump_lastmod.sh` was born for this! Similar to the other script (`create_pages.sh`) mentioned above, it is also be called from the other superior tools, so it doesn't have to be used separately.
-
-When some posts have been modified since their published date and also the file `_data/updates.yml` was created correctly, a list with the label **Recent Updates** will be displayed in the right panel of the desktop view, which records the five most recently modified posts.
-
-## Table of Contents
-
-By default, the **T**able **o**f **C**ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to `_config.yml` and set the value of variable `toc` to `false`. If you want to turn off TOC for specific post, add the following to post's [Front Matter](https://jekyllrb.com/docs/front-matter/):
-
-```yaml
----
-toc: false
----
-```
-
-
-## Comments
-
-Similar to TOC, the [Disqus](https://disqus.com/) comments is loaded by default in each post, and the global switch is defined by variable `comments` in file `_config.yml` . If you want to close the comment for specific post, add the following to the **Front Matter** of the post:
-
-```yaml
----
-comments: false
----
-```
-
-
-## Mathematics
-
-For website performance reasons, the mathematical feature won't be loaded by default. But it can be enabled by:
-
-```yaml
----
-math: true
----
-```
-
-## Preview Image
-
-If you want to add an image to the top of the post contents, specify the url for the image by:
-
-```yaml
----
-image: /path/to/image-file
----
-```
-
-## Pinned Posts
-
-You can pin one or more posts to the top of the home page, and the fixed posts are sorted in reverse order according to their release date. Enable by:
-
-```yaml
----
-pin: true
----
-```
-
-## Code Block
-
-Markdown symbols <code class="highlighter-rouge">```</code> can easily create a code block as following examples.
-
-```
-This is a common code snippet, without syntax highlight and line number.
-```
-
-## Specific Language
-
-Using <code class="highlighter-rouge">```language</code> you will get code snippets with line numbers and syntax highlight.
-
-> **Note**: The Jekyll style `{% raw %}{%{% endraw %} highlight LANGUAGE {% raw %}%}{% endraw %}` or `{% raw %}{%{% endraw %} highlight LANGUAGE linenos {% raw %}%}{% endraw %}` are not allowed to be used in this theme !
-
-```yaml
-# Yaml code snippet
-items:
-    - part_no:   A4786
-      descrip:   Water Bucket (Filled)
-      price:     1.47
-      quantity:  4
-```
-
-### Liquid Codes
-
-If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}{%{% endraw %} raw {%raw%}%}{%endraw%}` and `{% raw %}{%{% endraw %} endraw {%raw%}%}{%endraw%}` .
-
-{% raw %}
-```liquid
-{% if product.title contains 'Pack' %}
-  This product's title contains the word Pack.
-{% endif %}
-```
-{% endraw %}
-
-## Learn More
-
-For more knowledge about Jekyll posts, visit the [Jekyll Docs: Posts](https://jekyllrb.com/docs/posts/).
 
