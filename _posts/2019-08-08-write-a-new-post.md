@@ -14,7 +14,8 @@ En este write up veremos la máquina Vulnversity de Tryhackme, veremos temas có
 
 Primero haremos un escaneo con nmap para ello utilizamos el comando ```sudo nmap -sC -sV "ip"``` y el output que nos muestra es el siguiente:
 
-```Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-13 21:03 -03
+```terminal
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-11-13 21:03 -03
 Nmap scan report for 10.10.128.154
 Host is up (0.27s latency).
 Not shown: 994 closed ports
