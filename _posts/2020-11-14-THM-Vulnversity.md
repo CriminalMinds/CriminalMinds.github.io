@@ -66,3 +66,31 @@ Nmap done: 1 IP address (1 host up) scanned in 51.43 seconds
 Primero probé con el puerto 21, pero no habia ningún exploit para esa versión, luego intenté conectarme para ver si tenía acceso anónimo y nada, después seguí con ssh, y tampoco habían exploits disponibles para esa versión, continué con samba buscando recursos compartidos y estaba todo sin acceso con SMBMAP, luego termino con el puerto 3333 que es http y si pongo la ip de la máquina con el puerto me sale esto:
 
 ![1](/assets/img/sample/1.jpeg)
+
+Indagando más a fondo en la página (mirando el codigo fuente etc) me di cuenta de que es solo frontend así que empecé a enumerar directorios con gobuster
+
+## Localizando directorios con Gobuster
+
+Con el comando ```gobuster dir -u http://10.10.128.154:3333 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 150``` enumeramos los directorios escondidos que puede tener la página web, OJO: no es recomendable aumentar los threads porque se podría hacer una denegación de servicio o te podría bloquear un firewall, en todo caso con la herramienta W4fw00f se puede saber si un sitio tiene firewall o no, finalmente este es el resultado de Gobuster:
+
+```terminal
+2020/11/13 21:43:55 Starting gobuster
+===============================================================
+/images (Status: 301)
+/css (Status: 301)
+/js (Status: 301)
+/fonts (Status: 301)
+/internal (Status: 301)
+===============================================================
+```
+El directorio ```/internal``` se ve interesante y si ponemos esto en la url del sitio nos lleva a esto:
+
+![2](/assets/img/sample/2.png)
+
+Encontramos una subida de archivos, donde podemos subir una shell y así posteriormente tener conexión reversa con el servidor, o un backdoor así que primero vamos a abrir burpsuite para saber que tipo de extension es admitida para poder subir nuestro backdoor
+
+![3](/assets/img/sample/3.png)
+
+ahí subimos el archivo test.jpg y lo interceptamos con burpsuite y ahora lo mandamos a intruder para posteriormente hacer fuzzing al objetivo
+
+![4](/assets/img/sample/4.png)
