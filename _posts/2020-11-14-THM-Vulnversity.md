@@ -94,3 +94,7 @@ Encontramos una subida de archivos, donde podemos subir una shell y así posteri
 ahí subimos el archivo test.jpg y lo interceptamos con burpsuite y ahora lo mandamos a intruder para posteriormente hacer fuzzing al objetivo
 
 ![4](/assets/img/sample/4.png)
+
+Luego nos vamos a payloads y cargamos las posibles extensiones que permitirían la subida del archivo, pueden usar la lista que ustedes les guste más
+
+![5](/assets/img/sample/5.png)
