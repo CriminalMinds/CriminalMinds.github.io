@@ -63,4 +63,6 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 51.43 seconds
 ```
+Primero probé con el puerto 21, pero no habia ningún exploit para esa versión, luego intenté conectarme para ver si tenía acceso anónimo y nada, después seguí con ssh, y tampoco habían exploits disponibles para esa versión, continué con samba buscando recursos compartidos y estaba todo sin acceso con SMBMAP, luego termino con el puerto 3333 que es http y si pongo la ip de la máquina con el puerto me sale esto:
 
+![1](/assets/img/sample/1.jpeg)
