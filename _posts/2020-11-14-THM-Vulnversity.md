@@ -98,3 +98,7 @@ ahí subimos el archivo test.jpg y lo interceptamos con burpsuite y ahora lo man
 Luego nos vamos a payloads y cargamos las posibles extensiones que permitirían la subida del archivo, pueden usar la lista que ustedes les guste más
 
 ![5](/assets/img/sample/5.png)
+
+Y ejecutamos el ataque, el resultado es el sig:
+
+![6](/assets/img/sample/6.png)
