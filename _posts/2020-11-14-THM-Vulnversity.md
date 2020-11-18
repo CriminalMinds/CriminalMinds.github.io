@@ -99,6 +99,40 @@ Luego nos vamos a payloads y cargamos las posibles extensiones que permitirían 
 
 ![5](/assets/img/sample/5.png)
 
-Y ejecutamos el ataque, el resultado es el sig:
+Y ejecutamos el ataque, el resultado es el siguiente:
 
 ![6](/assets/img/sample/6.png)
+
+Podemos ver que aceptó la extensión .phtml porque cambió la longitud y si se renderiza via web igual se puede ver
+
+Ya que encontramos el directorio donde se pueden subir archivos, tenemos que encontrar en donde se alojan para poder ejecutar nuestro backdoor
+
+Así que utilizamos nuevamente Gobuster para enumerar directorios en el mismo de /internal
+
+El comando a utilizar sería ```gobuster dir -u http://10.10.6.52:3333/internal -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 100```
+
+Output:
+```terminal
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://10.10.6.52:3333/internal
+[+] Threads:        100
+[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2020/11/13 22:44:15 Starting gobuster
+===============================================================
+/uploads (Status: 301)
+/css (Status: 301)
+```
+Podemos ver que hay un subdirectorio llamado /uploads y se ve así:
+
+![7](/assets/img/sample/7.png)
+
+
+
+
