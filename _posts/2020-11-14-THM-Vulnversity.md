@@ -149,11 +149,13 @@ si todo salió bien, debería aparece algo así en la terminal:
 
 ![8](/assets/img/sample/8.png)
 
+ponemos el comando ```uname -a``` para imprimir información sobre el SO
+
+Para mayor comodidad en la terminal se puede hacer una shell TTY interactiva (Buscar en Google)
 
 
 
 
-ponemos a
 
 
 
