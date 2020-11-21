@@ -160,11 +160,15 @@ Ahora que ya estamos dentro, podemos ir escalando privilegios
 Primero lo que vamos a hacer es usar este comando ```find / -perm -u=s -type f 2>/dev/null``` para buscar desde la raíz el permiso para usuario SUID, porque queremos explotar permisos SUID? porque hay algunos binarios por ej: passwd se ejecuta como root y eso se puede explotar para poder ir escalando privilegios localmente.
 
 
-Hay una página que se llama GTFObins, sirve para encontrar binarios Unix que ayuda para hacer una escalada de privilegios, vamos a utilizar esta página para poder comparar los binarios de la máquina actual y los de GTFObins para así poder filtrarlos (Pueden hacer un script o hacerlo manualmente)
+Hay una página que se llama GTFOBins, sirve para encontrar binarios Unix que ayuda para hacer una escalada de privilegios, vamos a utilizar esta página para poder comparar los binarios de la máquina actual y los de GTFObins para así poder filtrarlos (Pueden hacer un script o hacerlo manualmente)
 
 Entonces nos da por resultado /bin/systemctl
 
-Ahora que ya sabemos el binario que vamos a explotar, lo buscamos en GTFObins y seguimos las instrucciones
+Ahora que ya sabemos el binario que vamos a explotar, lo buscamos en GTFObins y seguimos las instrucciones:
+
+![GTFO](/assets/img/sample/GTFO.png)
+
+
 
 
 
