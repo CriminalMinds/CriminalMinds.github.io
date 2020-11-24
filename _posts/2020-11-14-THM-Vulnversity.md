@@ -168,6 +168,14 @@ Ahora que ya sabemos el binario que vamos a explotar, lo buscamos en GTFObins y 
 
 ![GTFO](/assets/img/sample/GTFO.png)
 
+La primera línea ```sudo sh -c 'cp $(which systemctl) .; chmod +s ./systemctl'``` la vamos a ignorar, no la necesitamos por el momento, ahora lo que vamos a hacer es editar la línea de comando ```ExecStart=/bin/sh -c "id > /tmp/output"``` para poder ejecutar /bin/bash, ya que si hacemos un ls -la /bin/bash podemos notar que este se ejecuta cómo root entonces cuando nosotros ejecutemos bash, este se lanzará cómo usuario root, entonces la línea de código sería así:  ```ExecStart=/bin/sh -c "chmod +s /bin/bash"```
+
+Ahora en la consola escribimos bash -p y si salió todo bien, debería aparecer algo así: 
+
+![10](/assets/img/sample/10.png)
+
+
+
 
 
 
