@@ -174,6 +174,8 @@ Ahora en la consola escribimos bash -p y si salió todo bien, debería aparecer 
 
 ![10](/assets/img/sample/10.png)
 
+Y ahora que ya tenemos root, también podemos sacar el user.txt ;)
+
 
 
 
