@@ -14,4 +14,6 @@ Por eso cuando queremos hacer una intrusión a un sistema, es muy importante que
 
 ## Montando el laboratorio
 
-Primero, yo voy a tener 2 máquinas activas, la primera va a ser Kali (Atacante) y la segunda va a ser una máquina de Ubuntu (Victima)
+Primero, voy a tener 2 máquinas activas, la primera va a ser Kali (Atacante) y la segunda va a ser una máquina de Ubuntu (Victima), en Ubuntu voy a tener instalado Wireshark para poder capturar los paquetes TCP y poder diferenciar entre una conexión encriptada y otra que no lo está.
+
+## Utilizando Ncat
