@@ -12,7 +12,7 @@
   name: "Categorias"
   icon: "fas fa-stream"
   path: tabs
-  url: categories
+  url: Categorias
 -
   name: "Tags"
   icon: "fas fa-tags"
@@ -21,10 +21,10 @@
 -
   name: "Archivos"
   path: tabs
-  url: archives
+  url: Archivos
   icon: "fas fa-archive"
 -
   name: "Acerca de"
   icon: "fas fa-info"
   path: tabs
-  url: about
+  url: Acerca de
