@@ -8,7 +8,7 @@ title: Acerca de
 # MIT License
 ---
 
-> **Mi nombre es Nicolás Pérez (Nik0), tengo 18 años y soy un entusiasta de la tecnología, actualmente poseo certificaciones en distintas entidades que voy a           mostrar a continuación**
+> **Mi nombre es Nicolás Pérez (Nik0)/(MOA) y soy un entusiasta de la tecnología, actualmente poseo certificaciones en distintas entidades que voy a           mostrar a continuación**
 
 
 > <h3><strong>IBM</strong></h3>
