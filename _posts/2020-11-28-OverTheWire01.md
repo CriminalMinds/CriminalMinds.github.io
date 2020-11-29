@@ -35,3 +35,5 @@ para poder llamar al archivo desde la ruta absoluta ```cat /home/bandit1/-```
 o con asterisco(*) podemos hacer un cat global, quiere decir que va a llamar a todos los archivos que estén en ese directorio ```cat /home/bandit1/*```
 
 también esto sirve para llamar al archivo ```./-```
+
+Y con eso obtendríamos la flag/hash ;)
