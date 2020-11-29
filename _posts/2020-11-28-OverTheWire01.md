@@ -30,14 +30,6 @@ Si intentamos "ls" o "cat" se va a quedar trabado porque si hacemos ```cat -``` 
 
 Ahora, hay unas alternativas con cat para poder hacer esto:
 
-
-```cat /home/bandit1/-   
-```
-
-
-```cat /home/bandit1/*
-```
-
-
-```./-
-```
+```cat /home/bandit1/-```
+```cat /home/bandit1/*```
+```./-```
