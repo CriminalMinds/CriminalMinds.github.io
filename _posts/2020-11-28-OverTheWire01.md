@@ -30,6 +30,8 @@ Si intentamos "ls" o "cat" se va a quedar trabado porque si hacemos ```cat -``` 
 
 Ahora, hay unas alternativas con cat para poder hacer esto:
 
-```cat /home/bandit1/-```
-```cat /home/bandit1/*```
-```./-```
+para poder llamar al archivo desde la ruta absoluta ```cat /home/bandit1/-```
+
+o con asterisco(*) podemos hacer un cat global, quiere decir que va a llamar a todos los archivos que estén en ese directorio ```cat /home/bandit1/*```
+
+también esto sirve para llamar al archivo ```./-```
