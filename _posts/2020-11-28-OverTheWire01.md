@@ -23,4 +23,21 @@ Una vez dentro, hacemos ls y podemos ver un archivo llamado "-"
 
 ![OTW1](/assets/img/sample/OTW1.png)
 
-Si intentamos "ls" o "cat" se va a quedar trabado porque si hacemos ```cat -``` el comando va a creer que le estamos dando instrucciones de parámetros
+Si intentamos "ls" o "cat" se va a quedar trabado porque si hacemos ```cat -``` el comando va a creer que le estamos dando instrucciones de parámetros ej: "cat -o" "cat -e" y así, también si intentamos con el tab no nos autocompleta el archivo "-".
+
+![OTW1B](/assets/img/sample/OTW1B.png)
+
+
+Ahora, hay unas alternativas con cat para poder hacer esto:
+
+
+```cat /home/bandit1/-   
+```
+
+
+```cat /home/bandit1/*
+```
+
+
+```./-
+```
