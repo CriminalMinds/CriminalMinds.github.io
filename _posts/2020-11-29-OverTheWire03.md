@@ -18,7 +18,6 @@ Primero nos conectamos al servidor:
 ssh bandit3@bandit.labs.overthewire.org -p 2220
 ```
 
-La contraseña es el mismo hash/flag que conseguimos en el nivel anterior en el archivo readme
 
 Podemos ver que hay un directorio llamado "inhere" y dentro de el no se ve nada, por lo que el archivo está oculto
 
