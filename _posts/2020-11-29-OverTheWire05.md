@@ -19,7 +19,7 @@ ssh bandit5@bandit.labs.overthewire.org -p 2220
 
 Lo primero que vemos es el directorio "inhere", hacemos un "find ." y vemos más directorios, en la página de OTW, nos dice que el archivo es "legible por humanos", "1033 bytes de tamaño" y " no ejecutable" entonces ya nos dan una pista para poder filtrar el archivo por esos términos.
 
-El comando a utilizar será find . -type f -readable ! -executable -size 1033c | xargs cat
+El comando a utilizar será ```find . -type f -readable ! -executable -size 1033c | xargs cat```
 
 ![OTW](/assets/img/sample/OTWCTM.png)
 
