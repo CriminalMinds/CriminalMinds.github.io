@@ -20,7 +20,7 @@ Si vemos en la página de OTW, nos dice que el archivo tiene las siguientes prop
 
 Si hacemos un "find ." no nos va a mostrar nada, por lo que hay que buscar desde la raíz y con los parámetros que ya mencionamos anteriormente, el comando sería ```find / -user bandit7 -group bandit6 -size 33c```
 
-(poner foto aki)
+[OTW](/assets/img/sample/GG.png)
 
 Cómo podemos ver, nos arroja errores de que no tenemos permiso, cómo podemos solucionar esto?
 ## Breve explicación stderr y /dev/null
@@ -33,4 +33,5 @@ Ahora, si hacemos lo anteriormente mencionado con el comando ```find / -user ban
 
 Aquí les dejo una imagen para que puedan ver mejor los comandos:
 
-(imagen aki)
+[OTW](/assets/img/sample/GZ.png)
+
