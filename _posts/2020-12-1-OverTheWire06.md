@@ -13,7 +13,7 @@ tags: [Bandit]
 Primero nos conectamos al servidor:
 
 ```terminal
-ssh bandit4@bandit.labs.overthewire.org -p 2220
+ssh bandit6@bandit.labs.overthewire.org -p 2220
 ```
 
 Si vemos en la página de OTW, nos dice que el archivo tiene las siguientes propiedades "propiedad del usuario bandit7" "propiedad del grupo bandit6" y "33 bytes de tamaño"
