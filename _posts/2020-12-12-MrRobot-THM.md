@@ -10,7 +10,7 @@ tags: [THM, MrRobot]
 
 ## Introducción
 
-En este write up, vamos a resolver la máquina de Mr Robot en Tryhackme, veremos temas cómo enumerar directorios, fuerza bruta a paneles de login y explotación de binarios SUID
+En este write up, vamos a resolver la máquina de Mr Robot en Tryhackme, veremos temas cómo enumerar directorios, fuerza bruta con Hydra y explotación de binarios SUID
 
 ## Reconocimiento 
 
