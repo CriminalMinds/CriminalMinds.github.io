@@ -6,4 +6,4 @@ categories: [Write up]
 tags: [THM,Wonderland]
 ---
 
-![Banner!](/assets/img/sample/Wonderland/Banner.png)
+![Banner!](/assets/img/sample/Wonderland/alicia.png)
