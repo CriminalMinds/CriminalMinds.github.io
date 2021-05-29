@@ -7,4 +7,4 @@ tags: [THM,BountyHacker]
 ---
 
 
-![LULZ](/assets/img/sample/BountyHacker/0.png)
+![XD](/assets/img/sample/BountyHacker/0.jpg)
