@@ -12,8 +12,8 @@ title: Nik0                          # the main title
 
 tagline: De todo un poco # it will display as the sub-title
 
-description: >- Blog de Ciberseguridad 
-                                     # used by seo meta and the atom feed
+description: Blog de Ciberseguridad 
+                                 
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://CriminalMinds.github.io'
