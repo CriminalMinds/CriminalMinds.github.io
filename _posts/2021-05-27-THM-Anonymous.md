@@ -10,7 +10,7 @@ tags: [THM,Anonymous]
 
 ## Introducción
 
-En este write up, veremos la máquina Anonymous que está enfocada a principiantes, sin embargo en mi opinión personal creo que es muy útil para ir practicando metodologías e ir progresando en cuanto a pruebas de penetración a sistemas GNU/Linux.
+En este write up, veremos la máquina Anonymous que está enfocada a principiantes, sin embargo en mi opinión personal creo que es muy útil para ir practicando metodologías e ir progresando en cuanto a pruebas de penetración a sistemas.
 
 ## Reconocimiento
 
