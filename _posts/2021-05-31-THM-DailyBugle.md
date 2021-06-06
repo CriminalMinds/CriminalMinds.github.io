@@ -47,7 +47,7 @@ Si usamos la herramienta hashid para identificar que tipo de hash se está utili
 
 ![XD](/assets/img/sample/DailyBugle/8.png)
 
-Vamos a utilizar John para crackear el hash, especificando el archivo y el tipo de encriptación a la cual vamos a aplicar los parámetros.
+Vamos a utilizar John para crackear el hash, especificando el archivo y el tipo de encriptación al cual vamos a aplicar los parámetros.
 
 ![XD](/assets/img/sample/DailyBugle/9.png)
 
