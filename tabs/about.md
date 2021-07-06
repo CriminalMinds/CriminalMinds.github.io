@@ -8,6 +8,6 @@ title: Acerca de
 # MIT License
 ---
 
-> **Mi nombre es Nicolás Pérez (Nik0)/(MOA)/(Xang), hice esta página para entusiastas de la tecnología al igual que yo, disfruta ;)**
+> **Hice esta página para entusiastas de la tecnología al igual que yo, disfruta ;)**
 
 ![capi](/assets/img/sample/capi.jpg)
